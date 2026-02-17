@@ -3,6 +3,8 @@
     justify-content: space-between;
  box-shadow: 0 1px 20px rgba(0, 0, 0, 0.1);
   background-color: white;
+  height: 4rem;
+  align-items: center;
 
 
     
@@ -26,12 +28,26 @@
 }
 .links{
     display: flex;
-    gap: 1.5rem;
+    gap: 0.5rem;
     padding: 20px;
-    padding-right: 4rem;
+    padding-right: 3rem;
+    font-weight: 500;
+    font-size: 1rem;
+
    
 }
 .l1{
     
      text-decoration: none;
+      padding: 0.5rem;
+      color: black;
+}
+.l2{
+ text-decoration: none;
+}
+.l1:hover{
+    background-color: #e2e8f0;
+    color: #0f766e;
+    border-bottom: #0f766e 1px solid;
+   
 }
