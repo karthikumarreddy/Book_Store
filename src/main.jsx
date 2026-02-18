@@ -7,10 +7,10 @@ import { ThemeProvider } from "styled-components";
 import { BrowserRouter } from "react-router-dom";
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <BrowserRouter>
-      <ThemeProvider theme={lightTheme}>
+    <ThemeProvider theme={lightTheme}>
+      <BrowserRouter>
         <App />
-      </ThemeProvider>
-    </BrowserRouter>
-  </StrictMode>,
+      </BrowserRouter>
+    </ThemeProvider>
+  </StrictMode>
 );
