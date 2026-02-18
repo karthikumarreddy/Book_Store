@@ -14,7 +14,7 @@ import {
 } from "../styles/Navbar1.styles.jsx";
 
 function Navbar() {
-  const [toggle, setToggle] = useState(true);
+  const [toggle, setToggle] = useState(false);
 
   return (
     <Container>
@@ -31,7 +31,7 @@ function Navbar() {
           <i className="fa-solid fa-bars" />
         )}
       </Menu>
-      <Links $open={toggle}>
+      <Links $open={toggle} onClick={() => setToggle(false)}>
         <Link2 to="/">Home</Link2>
         <Link2 to="/search">Search</Link2>
         <Link2 to="/about">About</Link2>

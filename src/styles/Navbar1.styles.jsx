@@ -56,6 +56,7 @@ export const Link2 = styled(NavLink)`
   text-decoration: none;
   padding: 0.5rem;
   color: black;
+  display: ${({ $open }) => ($open ? "none" : "block")};
 
   &:hover {
     background-color: #e2e8f0;
