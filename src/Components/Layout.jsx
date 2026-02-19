@@ -1,5 +1,5 @@
 import { Footer } from "./Footer";
-import { Container } from "./Layout.styles";
+import { Container } from "../styles/Layout.styles";
 import { Navbar } from "./Navbar";
 
 function Layout({ children }) {
@@ -8,7 +8,6 @@ function Layout({ children }) {
       <Navbar />
       <Container>{children}</Container>
       <Footer />
-      
     </>
   );
 }

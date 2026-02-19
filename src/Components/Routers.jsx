@@ -4,7 +4,7 @@ import { About } from "../Pages/About";
 import { Cart } from "../Pages/Cart";
 import { FAQs } from "../Pages/FAQs";
 import { Search } from "../Pages/Search";
-import {BookDetails} from "../Pages/BookDetails";
+import { BookDetails } from "../Pages/BookDetails";
 
 function Routers() {
   return (
@@ -14,7 +14,7 @@ function Routers() {
       <Route path="/cart" element={<Cart />} />
       <Route path="/faqs" element={<FAQs />} />
       <Route path="/search" element={<Search />} />
-      <Route path=" /books/:id " element={<BookDetails />} />
+      <Route path="/books/:id" element={<BookDetails />} />
     </Routes>
   );
 }

@@ -9,6 +9,9 @@ export const Container = styled.div`
   background-color: white;
   height: 4rem;
   align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 2;
 `;
 
 export const Navcontainer = styled.div`
@@ -40,7 +43,10 @@ export const Links = styled.div`
   font-size: 1rem;
 
   @media (max-width: 700px) {
-    display: ${({ $open }) => ($open ? "flex" : "none")};
+    opacity: ${({ $open }) => ($open ? "1" : "0")};
+    visibility: ${({ $open }) => ($open ? "visible" : "hidden")};
+    transform: translateY(${({ $open }) => ($open ? "0" : "-10px")});
+    transition: all 0.2s ease-in-out;
     position: absolute;
     top: 4rem;
     left: 0;
@@ -49,6 +55,7 @@ export const Links = styled.div`
     flex-direction: column;
     padding: 1rem;
     gap: 1rem;
+    z-index: 10;
   }
 `;
 
@@ -59,12 +66,12 @@ export const Link2 = styled(NavLink)`
   display: ${({ $open }) => ($open ? "none" : "block")};
 
   &:hover {
-    background-color: #e2e8f0;
-    color: #0f766e;
+    background-color: ${(props) => props.theme.colors.border};
+    color: ${(props) => props.theme.colors.accent};
   }
   &.active {
-    color: #0f766e;
-    border-bottom: #0f766e 2px solid;
+    color: ${(props) => props.theme.colors.accent};
+    border-bottom: ${(props) => props.theme.colors.primaryLight} 2px solid;
   }
 `;
 
@@ -74,6 +81,7 @@ export const Menu = styled.button`
   background: none;
   border: none;
   cursor: pointer;
+  padding-right: 1rem;
 
   @media (max-width: 700px) {
     display: block;

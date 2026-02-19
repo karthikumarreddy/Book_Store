@@ -8,7 +8,7 @@ const Footeerstyle = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.1);
+  box-shadow: ${(props) => props.theme.colors.shadowtop};
   margin-top: 2rem;
 `;
 const date = new Date();
