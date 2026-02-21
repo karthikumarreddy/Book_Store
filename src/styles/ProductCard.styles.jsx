@@ -49,6 +49,12 @@ export const Button = styled.button`
   height: 2rem;
   border-radius: 0.3rem;
   border: none;
+  cursor: pointer;
+
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+  }
 
   &:hover {
     background-color: ${(props) => props.theme.colors.primary};
@@ -67,13 +73,19 @@ export const DisplayButton = styled.div`
   gap: 1rem;
 `;
 
-export const Premiun = styled.div`
+export const Premiun = styled.span`
   height: 1.5rem;
-  width: 5rem;
+  width: 4.5rem;
   background-color: ${(props) => props.theme.colors.accent};
   color: ${(props) => props.theme.colors.surface};
   border-radius: 2rem;
   text-align: center;
   transform: translate(0, -2rem);
-  font-size: 0.9rem;
+  font-size: 0.8rem;
+`;
+export const GridLayout = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+  padding: 20px;
+  gap: 20px;
 `;

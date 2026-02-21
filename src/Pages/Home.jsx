@@ -1,7 +1,6 @@
 import React from "react";
 import { Layout } from "../Components/Layout";
 import {
-  GridLayout,
   Heading1,
   Heading2,
   ListItem,
@@ -10,6 +9,7 @@ import {
 } from "../styles/Home.styles";
 import { ProductCard } from "../Components/ProductCard";
 import { books } from "../data/books";
+import { GridLayout } from "../styles/ProductCard.styles";
 
 function Home() {
   const book = books.slice(0, 6);
@@ -37,6 +37,7 @@ function Home() {
           <ListItem>View detailed information on dedicated pages</ListItem>
           <ListItem>Add books to a globally managed cart</ListItem>
         </UnorderedList>
+        <Heading2>Featured Books</Heading2>
         <GridLayout>
           {!book || book.length == 0 ? (
             <h1>Book list is empty</h1>

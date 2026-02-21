@@ -1,12 +1,14 @@
 import "./App.css";
-import { Navbar } from "./Components/Navbar";
+
 import { Routers } from "./Components/Routers";
-import { About } from "./Pages/About";
+import { CartProvider } from "./Context/CartContext";
 
 function App() {
   return (
     <>
-      <Routers />
+      <CartProvider>
+        <Routers />
+      </CartProvider>
     </>
   );
 }

@@ -25,9 +25,3 @@ export const UnorderedList = styled.ul`
 export const ListItem = styled.li`
   padding-top: 5px;
 `;
-export const GridLayout = styled.div`
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
-  padding: 20px;
-  gap: 20px;
-`;
