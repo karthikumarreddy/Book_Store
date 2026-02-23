@@ -4,7 +4,7 @@ import { Layout } from "../Components/Layout";
 import { books } from "../data/books";
 import { ProductCard } from "../Components/ProductCard";
 import { GridLayout } from "../styles/ProductCard.styles";
-import { SearchBar } from "../styles/Search.styles";
+import { Dropdown, SearchBar, SearchContainer } from "../styles/Search.styles";
 function Search() {
   const searchRef = useRef(null);
   const [searchValue, setSearchValue] = useState("");
@@ -56,22 +56,25 @@ function Search() {
           ref={searchRef}
           onChange={handleSearch}
         />
-        <select value={category} onChange={handleCategory}>
-          <option value="All">All category</option>
-          <option value="Comedy">Comedy</option>
-          <option value="Horror">Horror</option>
-          <option value="Sci-Fi">Sci-Fi</option>
-          <option value="Mystery">Mystery</option>
-        </select>
-        <input
-          type="range"
-          min="100"
-          max="1000"
-          step="50"
-          value={range}
-          onChange={handleRange}
-        />
-        <span>Up to{range}</span>
+        <br />
+        <SearchContainer>
+          <Dropdown value={category} onChange={handleCategory}>
+            <option value="All">All Categories</option>
+            <option value="Comedy">Comedy</option>
+            <option value="Horror">Horror</option>
+            <option value="Sci-Fi">Sci-Fi</option>
+            <option value="Mystery">Mystery</option>
+          </Dropdown>
+          <input
+            type="range"
+            min="100"
+            max="1000"
+            step="50"
+            value={range}
+            onChange={handleRange}
+          />
+          <span>Up to ₹ {range}</span>
+        </SearchContainer>
         <GridLayout>
           {!filteredBooks || filteredBooks.length == 0 ? (
             <h1>Book list is empty</h1>

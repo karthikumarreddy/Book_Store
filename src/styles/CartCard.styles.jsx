@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const Card = styled.div`
   height: 9rem;
   width: 70%;
-  margin: 10rem;
+
   display: flex;
   border-radius: 1rem;
   justify-content: space-between;
@@ -13,6 +13,10 @@ export const Card = styled.div`
   margin-top: 2rem;
   align-items: center;
   flex-wrap: wrap;
+
+  @media (max-width: 650px) {
+    height: 14rem;
+  }
 `;
 
 export const Image = styled.img`
@@ -49,5 +53,9 @@ export const Button = styled.button`
 
   &:active {
     transform: translateY(2px);
+  }
+  @media (max-width: 650px) {
+    width: 100%;
+    margin-top: 2rem;
   }
 `;
