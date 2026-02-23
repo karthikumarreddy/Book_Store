@@ -4,6 +4,7 @@ import { Layout } from "../Components/Layout";
 import { CartContext } from "../Context/CartContext";
 import { CartCard } from "../Components/CartCard";
 import styled from "styled-components";
+import { EmptyState } from "../Components/EmptyState";
 
 function Cart() {
   const CartContainer = styled.div`
@@ -35,7 +36,10 @@ function Cart() {
         </Container>
         <CartContainer>
           {!cart || cart.length == 0 ? (
-            <p>cart is empty</p>
+            <EmptyState
+              heading="Your cart is empty"
+              content="Books you add to your cart will appear here.  "
+            ></EmptyState>
           ) : (
             cart.map((b) => (
               <CartCard key={b.id} props={b} onChange={() => removeCart(b)} />

@@ -10,6 +10,7 @@ import {
 import { ProductCard } from "../Components/ProductCard";
 import { books } from "../data/books";
 import { GridLayout } from "../styles/ProductCard.styles";
+import { EmptyState } from "../Components/EmptyState";
 
 function Home() {
   const book = books.slice(0, 6);
@@ -40,7 +41,10 @@ function Home() {
         <Heading2>Featured Books</Heading2>
         <GridLayout>
           {!book || book.length == 0 ? (
-            <h1>Book list is empty</h1>
+            <EmptyState
+              heading="No Books Available"
+              content="Try adjusting your search or filter criteria to find books.  "
+            ></EmptyState>
           ) : (
             book.map((b) => <ProductCard key={b.id} props={b} />)
           )}

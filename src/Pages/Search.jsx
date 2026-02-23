@@ -5,6 +5,7 @@ import { books } from "../data/books";
 import { ProductCard } from "../Components/ProductCard";
 import { GridLayout } from "../styles/ProductCard.styles";
 import { Dropdown, SearchBar, SearchContainer } from "../styles/Search.styles";
+import { EmptyState } from "../Components/EmptyState";
 function Search() {
   const searchRef = useRef(null);
   const [searchValue, setSearchValue] = useState("");
@@ -77,7 +78,10 @@ function Search() {
         </SearchContainer>
         <GridLayout>
           {!filteredBooks || filteredBooks.length == 0 ? (
-            <h1>Book list is empty</h1>
+            <EmptyState
+              heading="No Books Available"
+              content="Try adjusting your search or filter criteria to find books.  "
+            ></EmptyState>
           ) : (
             filteredBooks.map((b) => <ProductCard key={b.id} props={b} />)
           )}
