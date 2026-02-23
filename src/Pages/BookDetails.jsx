@@ -1,10 +1,12 @@
-import React, { useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Layout } from "../Components/Layout";
 import { books } from "../data/books";
 import { booksDescription } from "../data/books";
 import { useParams } from "react-router-dom";
 import { Button } from "../styles/ProductCard.styles.jsx";
 import styled from "styled-components";
+import Model from "../Components/Model.jsx";
+import { CartContext } from "../Context/CartContext.jsx";
 
 const Details = styled.div`
   max-width: 800px;
@@ -22,7 +24,11 @@ const Details = styled.div`
 
 const BookDetails = () => {
   const { id } = useParams();
-  const bookdata = books.find((data) => id === data.id);
+  const bookdata = books.find((bookdata) => id === bookdata.id);
+  const { cart, addToCart } = useContext(CartContext);
+  const inCart = cart.some((i) => i.id === bookdata.id);
+  const [model, setModel] = useState(false);
+
   const description = booksDescription[id];
 
   useEffect(() => {
@@ -56,10 +62,17 @@ const BookDetails = () => {
           <hr />
           <div style={{ padding: "10px 0" }}>
             <h2 style={{ margin: 0 }}>₹{bookdata.price}</h2>
-            <Button>Add to Cart</Button>
+            <Button
+              onClick={() => {
+                setModel(true);
+              }}
+            >
+              Add to Cart
+            </Button>
           </div>
         </Details>
       </Layout>
+            {model && <Model prop={bookdata} onClose={() => setModel(false)} />}
     </>
   );
 };

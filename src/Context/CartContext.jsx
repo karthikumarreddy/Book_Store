@@ -6,7 +6,7 @@ export const CartProvider = ({ children }) => {
   const [cart, setCart] = useState(() => {
     const list = localStorage.getItem("cart");
     return list ? JSON.parse(list) : [];
-  },[]);
+  }, []);
 
   const addToCart = (id) => {
     const update = [...cart, id];
@@ -14,8 +14,14 @@ export const CartProvider = ({ children }) => {
     localStorage.setItem("cart", JSON.stringify(update));
   };
 
+  const removeCart = (id) => {
+    const update = cart.filter((item) => item !== id);
+    setCart(update);
+    localStorage.setItem("cart", JSON.stringify(update));
+  };
+
   return (
-    <CartContext.Provider value={{ cart, addToCart }}>
+    <CartContext.Provider value={{ cart, addToCart, removeCart }}>
       {children}
     </CartContext.Provider>
   );

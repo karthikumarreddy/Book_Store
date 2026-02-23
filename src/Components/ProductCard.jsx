@@ -9,12 +9,14 @@ import {
   ProductName,
   ProductPrice,
 } from "../styles/ProductCard.styles";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { CartContext } from "../Context/CartContext";
+import Model from "./Model";
 
 function ProductCard({ props }) {
   const { cart, addToCart } = useContext(CartContext);
   const inCart = cart.some((i) => i.id === props.id);
+  const [model, setModel] = useState(false);
   const navigate = useNavigate();
   return (
     <div>
@@ -29,11 +31,19 @@ function ProductCard({ props }) {
           <Button onClick={() => navigate(`/books/${props.id}`)}>
             View Details
           </Button>
-          <Button onClick={() => addToCart(props)} disabled={inCart}>
+          <Button
+            onClick={() => {
+              addToCart(props);
+              setModel(true);
+            }}
+            disabled={inCart}
+          >
             {inCart ? "Added" : "Add to Cart"}
           </Button>
         </DisplayButton>
       </Card>
+
+      {model && <Model prop={props} onClose={() => setModel(false)} />}
     </div>
   );
 }

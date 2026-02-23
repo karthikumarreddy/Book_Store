@@ -6,11 +6,9 @@ import { lightTheme } from "./styles/theme.jsx";
 import { ThemeProvider } from "styled-components";
 import { BrowserRouter } from "react-router-dom";
 createRoot(document.getElementById("root")).render(
-  <StrictMode>
-    <ThemeProvider theme={lightTheme}>
-      <BrowserRouter>
-        <App />
-      </BrowserRouter>
-    </ThemeProvider>
-  </StrictMode>
+  <ThemeProvider theme={lightTheme}>
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
+  </ThemeProvider>,
 );
