@@ -4,7 +4,7 @@ import { faqs } from "../data/faqs";
 import { Description, Options } from "../styles/FAQs.styles";
 
 function FAQs() {
-  const [content, setContent] = useState(null);
+  const [content, setContent] = useState(faqs[0].description);
   const [display, setDisplay] = useState(false);
   const [title, setTitle] = useState(faqs[0].title);
 
@@ -37,7 +37,7 @@ function FAQs() {
                   setContent(f.description);
                   setTitle(f.title);
                 }}
-              >
+              > 
                 {f.title}
               </Options>
             </div>
