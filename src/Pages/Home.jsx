@@ -43,7 +43,7 @@ function Home() {
           {!book || book.length == 0 ? (
             <EmptyState
               heading="No Books Available"
-              content="Try adjusting your search or filter criteria to find books.  "
+              content="Try again after some time. "
             ></EmptyState>
           ) : (
             book.map((b) => <ProductCard key={b.id} props={b} />)

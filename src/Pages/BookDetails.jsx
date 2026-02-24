@@ -64,6 +64,7 @@ const BookDetails = () => {
             <h2 style={{ margin: 0 }}>₹{bookdata.price}</h2>
             <Button
               onClick={() => {
+                addToCart(bookdata);
                 setModel(true);
               }}
             >
@@ -72,7 +73,7 @@ const BookDetails = () => {
           </div>
         </Details>
       </Layout>
-            {model && <Model prop={bookdata} onClose={() => setModel(false)} />}
+      {model && <Model prop={bookdata} onClose={() => setModel(false)} />}
     </>
   );
 };

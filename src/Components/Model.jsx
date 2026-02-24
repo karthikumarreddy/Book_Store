@@ -1,5 +1,5 @@
 import React from "react";
-import { BackDrop, Popup } from "../styles/Model.styles";
+import { BackDrop, Button, Cover, Popup } from "../styles/Model.styles";
 import { useNavigate } from "react-router-dom";
 
 function Model({ prop, onClose }) {
@@ -11,17 +11,20 @@ function Model({ prop, onClose }) {
           e.stopPropagation();
         }}
       >
+        <h1>Added to Cart</h1>
         <p>
-          <span>The {prop.title} has been added to your cart. </span>
+          <b>{prop.title} </b>has been added to your cart.
         </p>
-        <button
-          onClick={() => {
-            navigate(`/cart`);
-          }}
-        >
-          View Cart
-        </button>
-        <button onClick={onClose}>Continue Shopping </button>
+        <Cover>
+          <Button
+            onClick={() => {
+              navigate(`/cart`);
+            }}
+          >
+            View Cart
+          </Button>
+          <Button onClick={onClose}>Continue Shopping </Button>
+        </Cover>
       </Popup>
     </BackDrop>
   );
