@@ -6,7 +6,7 @@ export const Container = styled.div`
   display: flex;
   justify-content: space-between;
   box-shadow: ${(props) => props.theme.colors.shadow};
-  background-color: white;
+  background-color: ${(props) => props.theme.colors.surface};
   height: 4rem;
   align-items: center;
   position: sticky;
@@ -62,7 +62,7 @@ export const Links = styled.div`
 export const Link2 = styled(NavLink)`
   text-decoration: none;
   padding: 0.5rem;
-  color: black;
+  color: ${(props) => props.theme.colors.text};
   display: ${({ $open }) => ($open ? "none" : "block")};
 
   &:hover {
@@ -86,4 +86,8 @@ export const Menu = styled.button`
   @media (max-width: 700px) {
     display: block;
   }
+`;
+
+export const Dark = styled.i`
+  padding: 1rem;
 `;

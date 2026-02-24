@@ -67,8 +67,9 @@ const BookDetails = () => {
                 addToCart(bookdata);
                 setModel(true);
               }}
+              disabled={inCart}
             >
-              Add to Cart
+              {inCart ? "Added" : "Add to Cart"}
             </Button>
           </div>
         </Details>

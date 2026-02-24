@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import logo from "../assets/29302.png";
 import "../styles/Navbar1.styles.jsx";
 
@@ -11,10 +11,13 @@ import {
   Links,
   Bookname,
   Menu,
+  Dark,
 } from "../styles/Navbar1.styles.jsx";
+import { ThemeContext } from "../Context/ThemeProviderMulti.jsx";
 
 function Navbar() {
-  const [toggle, setToggle] = useState(false);
+  const { isDark, setIsDark } = useContext(ThemeContext);
+  const [toggle, setToggle] = useState(true);
 
   return (
     <Container>
@@ -37,6 +40,10 @@ function Navbar() {
         <Link2 to="/about">About</Link2>
         <Link2 to="/faqs">FAQs</Link2>
         <Link2 to="/cart">Cart</Link2>
+        <Dark
+          className={isDark ? "fa-regular fa-sun" : "fa-solid fa-moon"}
+          onClick={() => setIsDark((prev) => !prev)}
+        />
       </Links>
     </Container>
   );

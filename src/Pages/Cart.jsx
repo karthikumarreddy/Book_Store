@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useCallback, useContext } from "react";
 
 import { Layout } from "../Components/Layout";
 import { CartContext } from "../Context/CartContext";
@@ -20,6 +20,9 @@ function Cart() {
     margin-right: auto;
   `;
   const { cart, addToCart, removeCart } = useContext(CartContext);
+ const handleRemove = useCallback((id) => {
+  removeCart(id);
+}, [removeCart]);
   return (
     <div>
       <Layout>
@@ -42,7 +45,11 @@ function Cart() {
             ></EmptyState>
           ) : (
             cart.map((b) => (
-              <CartCard key={b.id} props={b} onChange={() => removeCart(b)} />
+              <CartCard
+                key={b.id}
+                props={b}
+                onChange={() => handleRemove(b.id)}
+              />
             ))
           )}
         </CartContainer>
